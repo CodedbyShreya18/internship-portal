@@ -1,0 +1,396 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    /* Applies the uploaded image as a responsive full-cover background with an elegant overlay */
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../Images/panimalartree.jpeg') no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    overflow-y: auto; /* Ensures natural scrolling if content overflows on smaller heights */
+}
+
+/* Animated Ambient Wave Background */
+.background {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    z-index: -2;
+}
+
+.wave {
+    position: absolute;
+    width: 900px;
+    height: 900px;
+    border-radius: 50%;
+    filter: blur(130px);
+    opacity: .35;
+    animation: float 18s ease-in-out infinite;
+}
+
+.wave1 {
+    background: #2563eb;
+    top: -250px;
+    left: -150px;
+}
+
+.wave2 {
+    background: #1d4ed8;
+    bottom: -300px;
+    right: -200px;
+    animation-delay: 5s;
+}
+
+.wave3 {
+    background: #0ea5e9;
+    top: 40%;
+    left: 40%;
+    animation-delay: 9s;
+}
+
+@keyframes float {
+    0% { transform: translate(0,0) scale(1); }
+    25% { transform: translate(120px,-80px) scale(1.15); }
+    50% { transform: translate(-60px,120px) scale(.95); }
+    75% { transform: translate(100px,60px) scale(1.1); }
+    100% { transform: translate(0,0) scale(1); }
+}
+
+/* Formal Form Card */
+.form-container {
+    background: #eef2f6;
+    border: 1px solid #cbd5e1;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45);
+    border-radius: 16px;
+    padding: 40px;
+    color: #0f172a;
+    width: 100%;
+    max-width: 850px;
+    position: relative;
+    z-index: 1;
+}
+
+.header-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #1e3a8a;
+    margin-bottom: 35px;
+    border-bottom: 2px solid #cbd5e1;
+    padding-bottom: 15px;
+}
+
+.form-group {
+    margin-bottom: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-group.row {
+    margin-bottom: 24px;
+}
+
+/* Partner Flex Row Styling */
+.partner-row-container {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    width: 100%;
+}
+
+.partner-row-container select {
+    flex: 1;
+    transition: flex 0.3s ease-in-out;
+}
+
+/* Elegant Underline Input Field for Custom Platforms */
+.inline-underline-input {
+    display: none;
+    flex: 1;
+    background: transparent !important;
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-bottom: 2px solid #1e3a8a !important;
+    border-radius: 0 !important;
+    padding: 8px 4px !important;
+    font-weight: 500;
+    color: #0f172a;
+    transition: all 0.3s ease;
+}
+
+.inline-underline-input:focus {
+    box-shadow: none !important;
+    border-bottom-color: #2563eb !important;
+}
+
+/* Standard Inputs & Select Elements */
+input[type="text"],
+input[type="date"],
+select {
+    width: 100%;
+    padding: 10px 14px;
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    color: #0f172a;
+    border-radius: 8px;
+    font-size: 0.92rem;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input[type="text"]:focus,
+input[type="date"]:focus,
+select:focus {
+    border-color: #1e3a8a;
+    box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.15);
+}
+
+input::placeholder {
+    color: #94a3b8;
+}
+
+select option {
+    background: #ffffff;
+    color: #0f172a;
+}
+
+label {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #1e3a8a;
+}
+
+/* Duration Pickers */
+.duration-container {
+    display: flex;
+    gap: 16px;
+    width: 100%;
+}
+
+.date-subgroup {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+    background: #ffffff;
+    padding: 8px 14px;
+    border-radius: 8px;
+    border: 1px solid #cbd5e1;
+}
+
+.date-subgroup label {
+    font-size: 0.88rem;
+    color: #475569 !important;
+    font-weight: 500;
+    min-width: 45px;
+}
+
+/* Grid Layout Splitting */
+.flex-split {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 30px;
+    margin-top: 10px;
+}
+
+.left-col, .right-col {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Document Upload Panel Box */
+.right-col {
+    background: #e2e8f0;
+    padding: 24px;
+    border-radius: 12px;
+    border: 1px dashed #94a3b8;
+}
+
+.file-box {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 12px;
+}
+
+.file-box:last-of-type {
+    margin-bottom: 0;
+}
+
+.file-box label strong {
+    color: #1e3a8a;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+input[type="file"] {
+    color: #475569;
+    font-size: 0.85rem;
+    width: 100%;
+}
+
+input[type="file"]::file-selector-button {
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    color: #1e293b;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-right: 10px;
+    font-weight: 500;
+    transition: background-color 0.2s;
+}
+
+input[type="file"]::file-selector-button:hover {
+    background: #f8fafc;
+}
+
+.divider {
+    border: 0;
+    border-top: 1px dashed #cbd5e1;
+    margin: 10px 0;
+}
+
+/* Radio Element Buttons */
+.radio-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 4px;
+    width: 100%;
+}
+
+.radio-option {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-size: 0.88rem;
+    color: #334155 !important;
+    background: #ffffff;
+    padding: 8px 14px;
+    border-radius: 6px;
+    border: 1px solid #cbd5e1;
+    transition: background-color 0.2s, border-color 0.2s;
+    font-weight: 500;
+    flex: 1 1 calc(50% - 12px);
+    min-width: 120px;
+}
+
+.radio-option:hover {
+    background: #f8fafc;
+    border-color: #94a3b8;
+}
+
+.radio-option input[type="radio"] {
+    accent-color: #1e3a8a;
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+}
+
+/* Credits Badge Banner */
+.credit-badge {
+    background: #dbeafe;
+    border-left: 4px solid #1e3a8a;
+    color: #1e3a8a;
+    padding: 10px 14px;
+    border-radius: 0 6px 6px 0;
+    font-weight: 600;
+    font-size: 0.88rem;
+    margin-top: 2px;
+    width: 100%;
+}
+
+/* Bottom Action Buttons */
+.btn-container {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.submit-btn {
+    width: 100%;
+    max-width: 260px;
+    padding: 12px;
+    background: #1e3a8a;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.submit-btn:hover {
+    background: #172554;
+}
+
+.submit-btn:active {
+    transform: scale(0.98);
+}
+
+/* Responsive Media Viewport Targets */
+@media (max-width: 1024px) {
+    .form-container {
+        max-width: 760px;
+        padding: 35px;
+    }
+    .flex-split {
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 40px 16px;
+    }
+    .form-container {
+        padding: 30px 24px;
+    }
+    .flex-split {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 20px 10px;
+    }
+    .form-container {
+        padding: 24px 12px;
+        border-radius: 12px;
+    }
+    .header-title {
+        font-size: 1.25rem;
+        margin-bottom: 25px;
+    }
+    .duration-container {
+        flex-direction: column;
+        gap: 8px;
+    }
+    .radio-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .radio-option {
+        width: 100%;
+        flex: none;
+    }
+    .submit-btn {
+        max-width: 100%;
+    }
+}

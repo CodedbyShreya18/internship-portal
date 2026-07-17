@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internship Details Entry</title>
+    
+    <!-- Google Font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap">
+    <!-- Link to external CSS stylesheet -->
+    <link rel="stylesheet" href="CSS/internship_details.css">
+</head>
+<body>
+
+<div class="background">
+    <div class="wave wave1"></div>
+    <div class="wave wave2"></div>
+    <div class="wave wave3"></div>
+</div>
+
+<div class="form-container">
+    <div class="header-title">Internship Details Form</div>
+    
+    <form action="#" method="POST" enctype="multipart/form-data">
+        
+        <div class="form-group">
+            <label for="org-name">Name of the Organization</label>
+            <input type="text" id="org-name" name="org_name" placeholder="Enter company name" required>
+        </div>
+
+        <div class="form-group">
+            <label for="org-nature">Nature of Org. (Research org / Industries / Universities)</label>
+            <select id="org-nature" name="org_nature" required>
+                <option value="" disabled selected>Select nature of organization</option>
+                <option value="Research">Research Organization</option>
+                <option value="Industry">Industry</option>
+                <option value="University">University</option>
+            </select>
+        </div>
+
+        <!-- Collaborating Platform Field with Underline Line Input Space -->
+        <div class="form-group">
+            <label for="org-partner">Collaborating Platform / Industry Partner</label>
+            <div class="partner-row-container">
+                <select id="org-partner" name="org_partner" onchange="checkIfOthersSelected(this)" required>
+                    <option value="" disabled selected>Select partner platform</option>
+                    <option value="AICTE">AICTE (Govt. Regulatory Body / Research)</option>
+                    <option value="ServiceNow">ServiceNow</option>
+                    <option value="Cisco">CISCO</option>
+                    <option value="Infosys">Infosys</option>
+                    <option value="Others">Others</option>
+                </select>
+
+                <input type="text" id="other-platform-input" name="other_platform" class="inline-underline-input" placeholder="Specify platform name...">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label>Duration</label>
+            <div class="duration-container">
+                <div class="date-subgroup">
+                    <label for="duration-from">From:</label>
+                    <input type="date" id="duration-from" name="duration_from" required>
+                </div>
+                <div class="date-subgroup">
+                    <label for="duration-to">To:</label>
+                    <input type="date" id="duration-to" name="duration_to" required>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex-split">
+            
+            <div class="left-col">
+                
+                <div class="form-group">
+                    <label>No. of Weeks</label>
+                    <div class="radio-container">
+                        <label class="radio-option">
+                            <input type="radio" id="radio-2w" name="weeks" value="2" required> 
+                            2 weeks
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" id="radio-4w" name="weeks" value="4"> 
+                            4 weeks
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" id="radio-6w" name="weeks" value="6"> 
+                            6 weeks
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="credits">Academic Credits Earned</label>
+                    <input type="hidden" id="credits-hidden" name="credits_earned" value="0">
+                    <div id="credit-display" class="credit-badge">Select weeks to calculate credits</div>
+                </div>
+
+                <div class="form-group">
+                    <label>Mode</label>
+                    <div class="radio-container">
+                        <label class="radio-option">
+                            <input type="radio" name="mode" value="Online" required> Online
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="mode" value="Offline"> Offline
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="mode" value="Hybrid"> Hybrid
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Stipend</label>
+                    <div class="radio-container">
+                        <label class="radio-option">
+                            <input type="radio" name="stipend" value="With Stipend" required> With stipend
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="stipend" value="Without Stipend"> Without stipend
+                        </label>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="right-col">
+                
+                <div class="file-box">
+                    <label for="offer-letter"><strong>Upload Offer Letter</strong></label>
+                    <input type="file" id="offer-letter" name="offer_letter" class="file-input" accept=".pdf,.doc,.docx" required>
+                </div>
+                
+                <hr class="divider">
+
+                <div class="file-box">
+                    <label for="report-file"><strong>Report</strong></label>
+                    <input type="file" id="report-file" name="report_file" class="file-input" accept=".pdf,.doc,.docx" required>
+                </div>
+
+                <hr class="divider">
+
+                <div class="file-box">
+                    <label for="certificate"><strong>Upload Certificate</strong></label>
+                    <input type="file" id="certificate" name="certificate" class="file-input" accept=".pdf,.png,.jpg,.jpeg" required>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="btn-container">
+            <button type="submit" class="submit-btn">Submit Details</button>
+        </div>
+
+    </form>
+</div>
+
+<script>
+    function checkIfOthersSelected(selectElement) {
+        const textInput = document.getElementById('other-platform-input');
+
+        if (selectElement.value === 'Others') {
+            // Shrink the dropdown gracefully and display the enter line
+            selectElement.style.flex = "0 0 45%";
+            textInput.style.display = 'block';
+            textInput.setAttribute('required', 'true');
+            textInput.focus();
+        } else {
+            // Restore full width and hide the text field
+            selectElement.style.flex = "1";
+            textInput.style.display = 'none';
+            textInput.removeAttribute('required');
+            textInput.value = '';
+        }
+    }
+</script>
+</body>
+</html>
