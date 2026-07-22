@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panimalar Engineering College - Internship Portal Login</title>
+    <!-- Importing Inter Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Importing Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/login.css">
+    
+    
+</head>
+<!-- Inside student_details.html or internship_details.html -->
+
+<body style="background-image: url('Images/panimalartree.png'); background-size: cover; background-position: center; min-height: 100dvh;  min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    overflow-y: auto; ">
+  
+    <div class="login-container">
+        <!-- Logo Section -->
+        <div class="logo-area">
+            <img src="Images/panimalar_logo.png" alt="Panimalar Engineering College Logo" class="college-logo" onerror="this.style.display='none';">
+            <div class="logo-placeholder">PANIMALAR</div>
+        </div>
+
+        <h2>Internship Portal</h2>
+        <p class="subtitle">Sign in to your student account</p>
+
+        <!-- Login Form -->
+         <form id="login-form" action="javascript:void(0);" onsubmit="validateAndSubmit(event)" novalidate>
+            <div class="input-group">
+                <div class="input-wrapper">
+                    <input type="text" id="register-number" placeholder="Enter Register Number" required autocomplete="off">
+                    <i class="fas fa-user input-icon"></i>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <div class="input-wrapper">
+                    <input type="text" id="password" placeholder="Enter DOB (dd-mm-yyyy)" required>
+                    <i class="far fa-calendar-alt input-icon"></i>
+                </div>
+            </div>
+
+            <button type="submit" class="login-btn">Login</button>
+        </form>
+
+        <div class="footer-links">
+            <a href="https://coe.panimalar.ac.in/coepec/index.php" target="_blank">Main Portal</a>
+        </div>
+    </div>
+
+    <script>
+        function handleLogin(event) {
+            event.preventDefault();
+            const regNum = document.getElementById('register-number').value;
+            const password = document.getElementById('password').value;
+            
+            if(regNum && password) {
+                alert("Attempting to login with Register Number: " + regNum);
+            }
+        }
+    </script>
+</body>
+</html>
